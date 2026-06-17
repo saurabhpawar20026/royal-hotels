@@ -1,0 +1,51 @@
+.searchbar {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  box-shadow: var(--shadow-md);
+}
+.searchbar__field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.6rem 0.9rem;
+  min-width: 0;
+}
+.searchbar__field label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+.searchbar__field label svg { color: var(--gold); }
+.searchbar__field input,
+.searchbar__field select {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+  cursor: pointer;
+}
+.searchbar__field input:focus,
+.searchbar__field select:focus { outline: none; }
+.searchbar__field input::-webkit-calendar-picker-indicator { filter: invert(0.7) sepia(1) saturate(3) hue-rotate(5deg); cursor: pointer; }
+.searchbar__field select option { background: var(--bg-3); color: var(--text); }
+.searchbar__divider { width: 1px; background: var(--border); align-self: center; height: 60%; }
+.searchbar__btn { white-space: nowrap; }
+
+@media (max-width: 860px) {
+  .searchbar { flex-wrap: wrap; }
+  .searchbar__field { flex: 1 1 45%; }
+  .searchbar__divider { display: none; }
+  .searchbar__btn { flex: 1 1 100%; }
+}
+@media (max-width: 480px) {
+  .searchbar__field { flex: 1 1 100%; }
+}

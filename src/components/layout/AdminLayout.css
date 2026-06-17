@@ -1,0 +1,135 @@
+.admin {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+.admin__sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 260px;
+  background: var(--bg-2);
+  border-right: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  z-index: 60;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.admin__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--heading);
+  padding: 0.4rem 0.6rem 1.4rem;
+  letter-spacing: 1px;
+}
+.admin__brand svg { color: var(--gold); }
+.admin__nav { display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
+.admin__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: 12px;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  transition: background 0.25s, color 0.25s;
+}
+.admin__nav-item svg { font-size: 1.05rem; }
+.admin__nav-item:hover { background: var(--surface-2); color: var(--text); }
+.admin__nav-item.active {
+  background: rgba(212,175,55,0.12);
+  color: var(--gold);
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+.admin__nav-item.danger:hover { color: var(--danger); }
+.admin__side-foot { display: flex; flex-direction: column; gap: 0.3rem; border-top: 1px solid var(--border); padding-top: 0.8rem; }
+
+.admin__main {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.admin__topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 3vw, 2rem);
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.admin__burger { display: none; background: none; border: none; color: var(--text); font-size: 1.2rem; cursor: pointer; }
+.admin__topbar-title { font-family: var(--font-display); font-size: 1.15rem; color: var(--heading); flex: 1; }
+.admin__topbar-actions { display: flex; align-items: center; gap: 0.8rem; }
+.admin__avatar { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--glass-border); }
+.admin__content { padding: clamp(1.2rem, 3vw, 2.2rem); }
+.admin__overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 55; }
+
+@media (max-width: 900px) {
+  .admin__sidebar { transform: translateX(-105%); }
+  .admin__sidebar.open { transform: none; }
+  .admin__main { margin-left: 0; }
+  .admin__burger { display: block; }
+}
+
+/* ---- Shared admin UI primitives (used by admin pages) ---- */
+.admin-page-head { margin-bottom: 1.8rem; }
+.admin-page-head h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.admin-page-head p { color: var(--text-dim); margin-top: 0.3rem; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+@media (max-width: 1100px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .kpi-grid { grid-template-columns: 1fr; } }
+.kpi {
+  padding: 1.4rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.kpi__label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); }
+.kpi__value { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--heading); margin: 0.4rem 0; }
+.kpi__delta { font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.3rem; }
+.kpi__delta.up { color: var(--success); }
+.kpi__delta.down { color: var(--danger); }
+.kpi__sub { color: var(--text-faint); font-size: 0.78rem; margin-left: 0.4rem; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.panel__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
+.panel__head h3 { font-size: 1.2rem; }
+
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.admin-table th {
+  text-align: left;
+  padding: 0.85rem 0.9rem;
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+.admin-table td { padding: 0.9rem; border-bottom: 1px solid var(--border); color: var(--text); }
+.admin-table tbody tr { transition: background 0.2s; }
+.admin-table tbody tr:hover { background: var(--surface-2); }
+.table-wrap { overflow-x: auto; }

@@ -1,0 +1,81 @@
+.rooms-toolbar {
+  display: flex;
+  gap: 1rem;
+  padding: 0.6rem;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+}
+.rooms-search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.4rem 1rem;
+  min-width: 220px;
+}
+.rooms-search svg { color: var(--gold); }
+.rooms-search input { flex: 1; background: none; border: none; color: var(--text); padding: 0.6rem 0; font-size: 0.95rem; }
+.rooms-search input:focus { outline: none; }
+.rooms-search button { background: none; border: none; color: var(--text-faint); cursor: pointer; }
+.rooms-search button:hover { color: var(--text); }
+.rooms-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 1rem;
+  border-left: 1px solid var(--border);
+  color: var(--gold);
+}
+.rooms-sort select { background: none; border: none; color: var(--text); padding: 0.6rem 0; cursor: pointer; font-size: 0.92rem; }
+.rooms-sort select:focus { outline: none; }
+.rooms-sort select option { background: var(--bg-3); }
+
+.rooms-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+}
+.rooms-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.chip {
+  padding: 0.55rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.chip:hover { color: var(--gold); border-color: var(--glass-border); }
+.chip.on { background: var(--gold-grad); color: #1a1405; border-color: transparent; font-weight: 600; }
+
+.rooms-extra { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+.price-filter { display: flex; flex-direction: column; gap: 0.3rem; min-width: 180px; }
+.price-filter span { font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.05em; }
+.price-filter input[type="range"] { accent-color: var(--gold); cursor: pointer; }
+.avail-toggle { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-dim); cursor: pointer; }
+.avail-toggle input { accent-color: var(--gold); width: 16px; height: 16px; cursor: pointer; }
+
+.rooms-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.rooms-meta strong { color: var(--gold); }
+
+.rooms-empty {
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.rooms-empty h3 { font-size: 1.6rem; }
