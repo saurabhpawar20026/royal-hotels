@@ -1,13 +1,19 @@
 // ============================================================
-//  UPI PAYMENT CONFIG  —  EDIT THESE TWO LINES
-//  Replace PAYEE_VPA with YOUR UPI ID (VPA), e.g. "ritik@oksbi",
+//  PAYMENT CONFIG  —  EDIT THESE LINES
+//  Replace PAYEE_VPA with YOUR UPI ID (VPA), e.g. "6260222827@ibl",
 //  and PAYEE_NAME with the name that should show in the UPI app.
-//  No API keys or secrets are needed for UPI deep-link / QR payments.
+//  No API keys, secrets, SDKs or payment server are needed —
+//  payments are collected via UPI / PhonePe / QR and verified manually.
 // ============================================================
 // Your UPI ID is read from a git-ignored .env (VITE_PAYEE_VPA) so it is never
 // committed. Set it in the root `.env` file (see .env.example).
-export const PAYEE_VPA = import.meta.env.VITE_PAYEE_VPA || "your-upi-id@bank";
+export const PAYEE_VPA = import.meta.env.VITE_PAYEE_VPA || "6260222827@ibl";
 export const PAYEE_NAME = import.meta.env.VITE_PAYEE_NAME || "Royal Hotels";
+
+// Direct PhonePe payment link / deep link (e.g. a PhonePe.me link or business
+// QR deep link). Leave blank to fall back to the standard UPI deep link, which
+// also opens PhonePe if it is installed. Override with VITE_PHONEPE_LINK.
+export const PHONEPE_LINK = import.meta.env.VITE_PHONEPE_LINK || "";
 
 // True once a real VPA has been configured (hides the demo warning).
 export const isUpiConfigured = () =>

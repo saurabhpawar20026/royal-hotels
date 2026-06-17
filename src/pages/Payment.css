@@ -239,6 +239,25 @@
 .pay-fail p { line-height: 1.55; }
 .pay-fail__actions { display: flex; gap: 0.7rem; flex-wrap: wrap; justify-content: center; margin-top: 0.4rem; }
 
+/* Success / "payment received" screen */
+.pay-done { max-width: 420px; animation: floatUp 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+.pay-done__icon { font-size: 3.4rem; color: var(--success); filter: drop-shadow(0 6px 20px rgba(74,222,128,0.4)); }
+.pay-done__ref { font-size: 0.9rem; color: var(--text-dim); }
+.pay-done__ref strong { color: var(--gold); letter-spacing: 0.04em; }
+
+/* Scan & Pay step list */
+.pay-steps { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.45rem; }
+.pay-steps li { font-size: 0.9rem; color: var(--text-dim); line-height: 1.45; }
+
+/* Payment-confirmation (proof) block */
+.pay-proof {
+  margin-top: 0.4rem; padding-top: 1.1rem; border-top: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 0.85rem;
+}
+.pay-proof__head { display: flex; align-items: center; gap: 0.5rem; color: var(--heading); font-size: 1.02rem; }
+.pay-proof__head svg { color: var(--gold); }
+.pay-proof__hint { font-size: 0.84rem; line-height: 1.5; }
+
 /* ===== Responsive ===== */
 @media (max-width: 980px) {
   .pay-layout { grid-template-columns: 1fr; }
